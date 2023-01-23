@@ -1,17 +1,13 @@
 let
-   #"empresa" = "Nome da empresa",
-   #"modulo" = "sales-contracts",
-   #"chave_api" = "iseriar a chave API",
-
-    Fonte = Json.Document(
+      Fonte = Json.Document(
         Web.Contents(
             "https://api.sienge.com.br",
                 [
-                    RelativePath =  #"empresa" & "/public/api/v1/" & #"modulo",
+                    RelativePath =  "/statuseng/public/api/v1/sales-contracts?",
                         Query = [
                             limit = Number.ToText(200),
-                            offset = Number.ToText(0),
-                            apikey = #"chave_api"
+                            offset = Number.ToText(0)
+                            
                         ]
                 ]
         )
@@ -22,11 +18,10 @@ let
             Json.Document(
                 Web.Contents("https://api.sienge.com.br",
                     [
-                        RelativePath = #"empresa" & "/public/api/v1/" & #"modulo",
+                        RelativePath = "/statuseng/public/api/v1/sales-contracts?",
                             Query = [
                                 limit = Number.ToText(200),
-                                offset = Number.ToText(numeroPagina),
-                                apikey = #"chave_api"
+                                offset = Number.ToText(numeroPagina)
                             ]
                     ]
                 )
