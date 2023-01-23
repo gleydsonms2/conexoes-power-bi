@@ -18,3 +18,15 @@ Podemos consultar utilizando a url abaixo através da conexão web porém, esse 
 De forma dinâmica, foi criado um parâmetro que armazena o número de páginas e atribuí-lo dentro da função de invocação criada.
 
 [Consulta_contratos](https://github.com/gleydsonms2/conexoes-power-bi/blob/main/consulta_contratos.m)
+
+##
+
+* Comissões de Vendas
+
+Nesta demonstração podemos utilizar a url abaixo para realizar a consulta na tabela sales-commissions.
+
+`https://api.sienge.com.br/{subdomain-do-cliente}/public/api/v1/sales-commissions?limit=200&offset=0`
+
+Da forma dinâmica foi desenvolvido um parâmetro que armazena o número de páginas e atribuí-lo dentro da função de invocação criada.
+
+[Consulta_comissoes](https://github.com/gleydsonms2/conexoes-power-bi/blob/main/consulta_comissoes.m)
