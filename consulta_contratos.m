@@ -33,18 +33,19 @@ let
 
     #"Paginas" = Number.RoundUp(#"Resultado" / #"Limit"),    
 
-    #"Lista Dados" = 
-        List.Generate(
-            ()=> [ Pagina = 0, Consulta = try #"Requisição"(0)[results] otherwise null],
-                each [Pagina] < #"Paginas",
-                each [Consulta = try #"Requisição"([Pagina]+1)[results] otherwise null, Pagina = [Pagina]+1],
-                each [Consulta]
-        ),
-
     #"Tabela" = 
         Table.ExpandRecordColumn(
             Table.ExpandListColumn(
-                Table.FromList(#"Lista Dados", Splitter.SplitByNothing(), null, null, ExtraValues.Error), "Column1"
+                Table.FromList(
+                    List.Generate(
+                        ()=> [ Pagina = 0, Consulta = try #"Requisição"(0)[results] otherwise null],
+                        each [Pagina] < #"Paginas",
+                        each [Consulta = try #"Requisição"([Pagina]+1)[results] otherwise null, Pagina = [Pagina]+1],
+                        each [Consulta]
+                    ), Splitter.SplitByNothing(), null, null, ExtraValues.Error
+                
+                ), "Column1"
+             
             ), "Column1", 
             
             {"id", "enterpriseId", "receivableBillId", "number", "correctionType", "situation", "discountType", "cancellationReason", "discountPercentage", "value", "totalSellingValue", "contractDate", "issueDate", "cancellationDate", "creationDate", "lastUpdateDate", "proRataIndexer", "interestPercentage", "interestType", "fineRate", "lateInterestCalculationType", "dailyLateInterestValue", "containsRemadeInstallments", "externalId", "keysDeliveredAt", "brokers", "salesContractCustomers", "salesContractUnits", "paymentConditions", "links"}
