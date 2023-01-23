@@ -17,4 +17,4 @@ Podemos consultar utilizando a url abaixo através da conexão web porém, esse 
 
 De forma dinâmica, foi criado um parâmetro que armazena o número de páginas e atribuí-lo dentro da função de invocação criada.
 
-Contrato_de_venda
+Consulta_contratos
