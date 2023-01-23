@@ -2,7 +2,7 @@
 
 O Sienge é uma ERP para empresas que atuam na construção civil, onde possuí uma API privada no qual podemos consultar inúmeras informações.
 
-No [site da documentação](https://api.sienge.com.br/docs/#/general-information), encontramos tudo bem explicado sobre como podemos fazer requisições, mas nesta seção irei disponibilizar a consulta de Contratos de Vendas.
+No [site da documentação](https://api.sienge.com.br/docs/#/general-information), encontramos tudo bem explicado sobre como podemos fazer requisições. Nesta seção irei disponibilizar a consulta de algumas tabelas.
 
 #Realizando a Conexão
 Por ser tratar de uma API privada é preciso possuí a chave da API para efetuar a conexão e realizar a consulta.
