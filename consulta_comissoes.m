@@ -3,7 +3,7 @@ let
         Web.Contents(
             "https://api.sienge.com.br",
                 [
-                    RelativePath = "/statuseng/public/api/v1/sales-commissions?",
+                    RelativePath = "/subdonimio-do-cliente/public/api/v1/sales-commissions?",
                         Query = [
                             limit = Number.ToText(200),
                             offset = Number.ToText(0)
@@ -18,7 +18,7 @@ let
             Json.Document(
                 Web.Contents("https://api.sienge.com.br",
                     [
-                        RelativePath = "/statuseng/public/api/v1/sales-commissions?",
+                        RelativePath = "/subdonimio-do-cliente/public/api/v1/sales-commissions?",
                             Query = [
                                 limit = Number.ToText(200),
                                 offset = Number.ToText(numeroPagina)
