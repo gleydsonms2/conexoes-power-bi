@@ -31,7 +31,9 @@ let
     
     #"Limit" = Fonte[resultSetMetadata][limit],
 
-    #"Paginas" = Number.RoundUp(#"Resultado" / #"Limit"),    
+    #"Paginas" = Number.RoundUp(#"Resultado" / #"Limit"),
+    
+    #"Offset" = #"Paginas" * 200,
 
     #"Tabela" = 
         Table.ExpandRecordColumn(
@@ -39,7 +41,7 @@ let
                 Table.FromList(
                     List.Generate(
                         ()=> [ Pagina = 0, Consulta = try #"Requisição"(0)[results] otherwise null],
-                            each [Pagina] < #"Paginas",
+                            each [Pagina] < #"Offset",
                             each [Consulta = try #"Requisição"([Pagina]+1)[results] otherwise null, Pagina = [Pagina]+1],
                             each [Consulta]
                     ), Splitter.SplitByNothing(), null, null, ExtraValues.Error
